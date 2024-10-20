@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
+import { fetchCharacters } from '../utils/api';
 
-const useFetch = (url: string) => {
+const useCharacters = (url: string) => {
   const [data, setData] = useState<ReadableStream<Uint8Array> | null>(null);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false);
@@ -8,8 +9,9 @@ const useFetch = (url: string) => {
     (async function () {
       try {
         setLoading(true);
-        const response = await fetch(url);
-        setData(response.body);
+        const response = await fetchCharacters();
+        setData(response);
+        setErrorMessage(false);
       } catch {
         setErrorMessage(true);
       } finally {
@@ -21,4 +23,4 @@ const useFetch = (url: string) => {
   return { data, loading, errorMessage };
 };
 
-export default useFetch;
+export default useCharacters;
