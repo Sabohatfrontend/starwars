@@ -1,14 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import useCharacters from '../../hooks/useCharacters';
 import { getCharacterId } from '../../utils/getCharacterId';
 import './characterList.css';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import Pagination from '../pagination/pagination';
 
 const CharacterList: React.FC = () => {
-  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const page = searchParams.get('page');
+  const [currentPage, setCurrentPage] = useState<number>(
+    page ? Number(searchParams.get('page')) : 1
+  );
   const { count, characters, loading } = useCharacters(currentPage);
 
+  useEffect(() => {
+    setSearchParams((params) => {
+      params.set('page', currentPage.toString());
+      return params;
+    });
+  }, [currentPage, setSearchParams]);
   if (loading) return <div>Loading...</div>;
 
   return (
