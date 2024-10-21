@@ -8,6 +8,7 @@ const useCharacters = (currentPage: number = 1) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     const loadCharacters = async () => {
       const data = await fetchCharacters(currentPage);
       setCharacters(data.results);

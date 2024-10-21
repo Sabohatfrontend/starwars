@@ -19,7 +19,13 @@ const CharacterList: React.FC = () => {
       return params;
     });
   }, [currentPage, setSearchParams]);
-  if (loading) return <div>Loading...</div>;
+
+  if (loading)
+    return (
+      <div className="loader-wrap">
+        <span className="loader"></span>
+      </div>
+    );
 
   return (
     <div>
