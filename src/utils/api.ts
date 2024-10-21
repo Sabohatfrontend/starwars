@@ -1,7 +1,7 @@
 const API_URL = 'https://swapi.dev/api/';
 
-export const fetchCharacters = async () => {
-  const response = await fetch(`${API_URL}/people/`);
+export const fetchCharacters = async (page: number = 1) => {
+  const response = await fetch(`${API_URL}/people/?page=${page}`);
   return response.json();
 };
 
