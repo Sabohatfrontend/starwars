@@ -62,6 +62,12 @@ select {
   caret-color: var(---dark-color);
 }
 
+h1,
+h2{
+  margin: 0;
+  padding: 0;
+}
+
 .section-header {
   margin: 0;
   padding: 0;

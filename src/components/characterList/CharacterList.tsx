@@ -29,13 +29,17 @@ const CharacterList: React.FC = () => {
 
   return (
     <div>
-      <h2>
+      <p className="total-text">
         Total: <span>{count}</span>
-      </h2>
+      </p>
       <ul className="character-lists">
         {characters.map((character) => (
           <li className="character-item" key={character.url}>
-            <Link className="character-link" to={getCharacterId(character.url)}>
+            <Link
+              title={`About ${character.name}`}
+              className="character-link"
+              to={getCharacterId(character.url)}
+            >
               <img
                 className="character-image"
                 src={`https://starwars-visualguide.com/assets/img/characters/${getCharacterId(character.url)}.jpg`}

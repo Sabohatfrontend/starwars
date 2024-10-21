@@ -1,4 +1,13 @@
+.header{
+    padding: 10px;
+}
+
 .header-link{
+    font-size: 28px;
     text-decoration: none;
     color: var(--brand-color);
+}
+
+.header-link:hover{
+    color: var(--orange);
 }

@@ -4,7 +4,7 @@ import './header.css';
 
 export default function Header(): React.JSX.Element {
   return (
-    <header>
+    <header className="header">
       <h1 title="Go Home Page">
         <Link className="header-link" to={ROUTES.HOME}>
           {' '}
