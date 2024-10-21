@@ -4,6 +4,7 @@ import { ROUTES } from './constants/routes';
 import MainLayout from './layout/MainLayout';
 import MainPage from './pages/mainPage/mainPage';
 import ErrorPage from './pages/errorPage/errorPage';
+import CharacterDetails from './pages/characterDetails/characterDetails';
 
 function App() {
   const routes = createBrowserRouter([
@@ -15,6 +16,10 @@ function App() {
         {
           index: true,
           element: <MainPage />,
+        },
+        {
+          path: '/:id',
+          element: <CharacterDetails />,
         },
       ],
     },

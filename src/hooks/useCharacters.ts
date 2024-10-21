@@ -1,26 +1,21 @@
 import { useEffect, useState } from 'react';
 import { fetchCharacters } from '../utils/api';
+import { Character } from '../types/characters';
 
-const useCharacters = (url: string) => {
-  const [data, setData] = useState<ReadableStream<Uint8Array> | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState(false);
+const useCharacters = () => {
+  const [characters, setCharacters] = useState<Character[]>([]);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    (async function () {
-      try {
-        setLoading(true);
-        const response = await fetchCharacters();
-        setData(response);
-        setErrorMessage(false);
-      } catch {
-        setErrorMessage(true);
-      } finally {
-        setLoading(false);
-      }
-    })();
-  }, [url]);
+    const loadCharacters = async () => {
+      const data = await fetchCharacters();
+      setCharacters(data.results);
+      setLoading(false);
+    };
+    loadCharacters();
+  }, []);
 
-  return { data, loading, errorMessage };
+  return { characters, loading };
 };
 
 export default useCharacters;

@@ -1,4 +1,4 @@
-export type Characters = {
+export type Character = {
   birth_year: string;
   eye_color: string;
   name: string;
