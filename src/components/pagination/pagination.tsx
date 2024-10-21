@@ -29,7 +29,7 @@ const Pagination: React.FC<PaginationProps> = ({
           onClick={() => onPageChange(page)}
           style={{
             margin: '0 5px',
-            backgroundColor: currentPage === page ? '#007bff' : '#fff',
+            backgroundColor: currentPage === page ? '#054c73' : '#fff',
             color: currentPage === page ? '#fff' : '#000',
           }}
         >

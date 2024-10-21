@@ -19,7 +19,12 @@ const Graph: React.FC<{
     {
       id: character.url,
       data: { label: character.name },
-      position: { x: 250, y: 25 },
+      style: {
+        padding: '10px',
+        fontSize: '28px',
+        fontWeight: '600',
+      },
+      position: { x: 0, y: 0 },
     },
     ...movies.map((movie) => ({
       id: `${movie.url}`,

@@ -4,6 +4,7 @@ import { getCharacterId } from '../../utils/getCharacterId';
 import './characterList.css';
 import { Link, useSearchParams } from 'react-router-dom';
 import Pagination from '../pagination/pagination';
+import Loading from '../loading/loading';
 
 const CharacterList: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -20,12 +21,7 @@ const CharacterList: React.FC = () => {
     });
   }, [currentPage, setSearchParams]);
 
-  if (loading)
-    return (
-      <div className="loader-wrap">
-        <span className="loader"></span>
-      </div>
-    );
+  if (loading) return <Loading />;
 
   return (
     <div>

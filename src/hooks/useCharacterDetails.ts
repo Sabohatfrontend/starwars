@@ -8,6 +8,7 @@ const useCharacterDetails = (id: string) => {
 
   useEffect(() => {
     const loadDetails = async () => {
+      setLoading(true);
       const data = await fetchCharacterDetails(id);
       setDetails(data);
       setLoading(false);
